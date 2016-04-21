@@ -1,20 +1,19 @@
-describe('homeCtrl', function() {
-	var $controller;
+'use strict';
 
-	beforeEach(module('ngTests'));
+describe(`homeCtrl`, () => {
+	let $controller;
 
-	beforeEach(inject(function( _$controller_ ){
+	beforeEach(module(`ngTests`));
+
+	beforeEach(inject( _$controller_ => {
 		$controller = _$controller_;
 	}));
 
-	describe('$scope.returnOne', function() {
+	describe(`$scope.returnOne`, () => {
+		it(`returns the number one`, () => {
+			let controller = $controller(`homeCtrl`, { $scope: {} });
 
-		it('returns the number 1', function() {
-			var controller = $controller('homeCtrl', { $scope: {} });
-
-			expect(controller.scope.returnOne()).to.equal(1);
+			expect( controller.scope.returnOne() ).to.equal(1);
 		});
-
 	});
-
 });
